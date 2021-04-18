@@ -90,7 +90,7 @@ def transformation():
     # cap.release()
     # cv2.destroyAllWindows()
 
-    short_size = 360
+    short_size = 412
 
     while (1):
 
@@ -99,10 +99,10 @@ def transformation():
         t_start = time.time()
         cap = cv2.VideoCapture(0)        
         ret, frame = cap.read()
-        cv2.imwrite("/Users/aaron/01_code/01_industryCV/edgeInference/temp.png", frame)
+        cv2.imwrite("/Users/aaron/01_code/01_industryCV/inference/temp.png", frame)
 
         # pre-process
-        img = mx.img.imread("/Users/aaron/01_code/01_industryCV/edgeInference/temp.png")
+        img = mx.img.imread("/Users/aaron/01_code/01_industryCV/inference/temp.png")
         height, width, channels = img.shape[0], img.shape[1], img.shape[2]
 
         mean, std = (0.485, 0.456, 0.406), (0.229, 0.224, 0.225)
@@ -163,7 +163,7 @@ def transformation():
         # stitch original and texted images
         final = np.hstack([frame, AddText])
 
-        cv2.imwrite("/Users/aaron/01_code/01_industryCV/edgeInference/tempBound.png", final)
+        cv2.imwrite("/Users/aaron/01_code/01_industryCV/inference/tempBound.png", final)
         t_end = time.time()
 
         print('Time consumption = {} second'.format(t_end - t_start))

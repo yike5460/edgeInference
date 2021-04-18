@@ -25,12 +25,22 @@ download files from configured output s3 bucket, and unzip to working folder, fi
 - manifest
 
 ## install dlr
+On x86_64 CPU targets running Linux, you can install latest release of DLR package via
+
+```
+pip install dlr
+```
+
+For installation of DLR on GPU targets or non-x86 edge devices, please refer to [Releases](https://github.com/neo-ai/neo-ai-dlr/releases) for prebuilt binaries, or Installing DLR for [building DLR from source](https://neo-ai-dlr.readthedocs.io/en/latest/install.html).
+
 ```
 wget https://neo-ai-dlr-release.s3-us-west-2.amazonaws.com/v1.8.0/rasp4b/dlr-1.8.0-py3-none-any.whl
 pip install dlr-1.8.0-py3-none-any.whl 
 ```
 
 ## start inference
+
+### rasp4
 refer to rasp4Inference.py
 outputs should be like 
 ```
@@ -66,6 +76,8 @@ inference time is 2.412400484085083 seconds
 1
 Result: label -  'goldfish, Carassius auratus', probability - 17.0
 ```
+
+### rk3388
 
 # reference link
 ## pretained model and example code
